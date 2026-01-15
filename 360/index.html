@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Grad Panorama Tour</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        #panorama-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Styling für die interaktiven Hotspots */
+        .custom-hotspot {
+            height: 30px;
+            width: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid #333;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .custom-hotspot:hover {
+            transform: scale(1.2);
+            background: #ffcc00;
+        }
+
+        .hotspot-tooltip {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            text-align: center;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            width: 120px;
+            bottom: 40px;
+            left: 50%;
+            margin-left: -60px;
+            font-size: 14px;
+        }
+
+        .custom-hotspot:hover .hotspot-tooltip {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="panorama-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <script>
+        // Initialisierung des Viewers
+        const viewer = pannellum.viewer('panorama-container', {
+            "type": "equirectangular",
+            "panorama": "/media/img/360/PXL_20260112_190522042.PHOTOSPHERE.jpg", // HIER DEIN BILD PFAD EINTRAGEN
+            "autoLoad": true,
+            "hotSpots": [
+                {
+                    "pitch": 10,    // Vertikale Position (-90 bis 90)
+                    "yaw": 20,      // Horizontale Position (-180 bis 180)
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspotTooltip,
+                    "createTooltipArgs": "Hier ist eine Info!",
+                    "clickHandlerFunc": function () {
+                        alert("Du hast auf den Hotspot geklickt!");
+                    }
+                },
+                {
+                    "pitch": -11,
+                    "yaw": -17,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspotTooltip,
+                    "createTooltipArgs": "Link zur Website",
+                    "clickHandlerFunc": function () {
+                        window.open("https://musikstadt-erfurt.netlify.app/", "_blank");
+                    }
+                }
+            ]
+        });
+
+        // Funktion um das Tooltip-Element zu erstellen
+        function hotspotTooltip(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-hotspot');
+            const span = document.createElement('span');
+            span.classList.add('hotspot-tooltip');
+            span.innerHTML = args;
+            hotSpotDiv.appendChild(span);
+        }
+    </script>
+</body>
+
+</html>

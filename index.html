@@ -1,41 +1,46 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Musikstadt Erfurt</title>
-    
+
     <link rel="stylesheet" href="styles.css">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
-    
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Bebas+Neue&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
     <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              primary: "#bfa854", // Gold
-              "primary-dark": "#B8962E",
-              "background-light": "#FFF8E7", // Warm cream
-              "text-dark": "#1E293B", // Dark blue-ish grey
-              "accent-blue": "#1f20a4", // Blue
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#bfa854", // Gold
+                        "primary-dark": "#B8962E",
+                        "background-light": "#FFF8E7", // Warm cream
+                        "text-dark": "#1E293B", // Dark blue-ish grey
+                        "accent-blue": "#1f20a4", // Blue
+                    },
+                    fontFamily: {
+                        script: ['"Dancing Script"', 'cursive'],
+                        display: ['"Bebas Neue"', 'sans-serif'],
+                        body: ['"Open Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.5rem",
+                    },
+                    backgroundImage: {
+                        'watercolor-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
+                    }
+                },
             },
-            fontFamily: {
-              script: ['"Dancing Script"', 'cursive'],
-              display: ['"Bebas Neue"', 'sans-serif'],
-              body: ['"Open Sans"', 'sans-serif'],
-            },
-            borderRadius: {
-              DEFAULT: "0.5rem",
-            },
-            backgroundImage: {
-                'watercolor-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')",
-            }
-          },
-        },
-      };
+        };
     </script>
     <link rel="icon" type="image/svg+xml" href="/media/img/general/logo.svg">
     <style>
@@ -45,131 +50,176 @@
         }
     </style>
 </head>
-<body class="bg-background-light text-text-dark font-body transition-colors duration-300 min-h-screen flex flex-col relative overflow-x-hidden">
+
+<body
+    class="bg-background-light text-text-dark font-body transition-colors duration-300 min-h-screen flex flex-col relative overflow-x-hidden">
     <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none z-0">
-        <div class="absolute -top-20 -left-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl filter mix-blend-multiply animate-pulse"></div>
-        <div class="absolute top-40 -right-20 w-80 h-80 bg-orange-200/30 rounded-full blur-3xl filter mix-blend-multiply"></div>
-        <div class="absolute bottom-0 left-1/3 w-[600px] h-[600px] bg-yellow-100/40 rounded-full blur-[100px] filter mix-blend-multiply"></div>
+        <div
+            class="absolute -top-20 -left-20 w-96 h-96 bg-blue-200/30 rounded-full blur-3xl filter mix-blend-multiply animate-pulse">
+        </div>
+        <div
+            class="absolute top-40 -right-20 w-80 h-80 bg-orange-200/30 rounded-full blur-3xl filter mix-blend-multiply">
+        </div>
+        <div
+            class="absolute bottom-0 left-1/3 w-[600px] h-[600px] bg-yellow-100/40 rounded-full blur-[100px] filter mix-blend-multiply">
+        </div>
     </div>
 
-    <nav class="relative z-50 w-full px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-orange-100 sticky top-0">
+    <nav
+        class="relative z-50 w-full px-6 py-4 flex justify-between items-center bg-white/80 backdrop-blur-md border-b border-orange-100 sticky top-0">
         <div class="flex items-center gap-2">
-            <a href="/index.html"><img src="/media/img/general/logo.svg" alt="Musikstadt Erfurt Logo" class="h-11 w-auto"/></a>
+            <a href="/index.html"><img src="/media/img/general/logo.svg" alt="Musikstadt Erfurt Logo"
+                    class="h-11 w-auto" /></a>
         </div>
-        
+
         <div class="hidden md:flex gap-8 items-center">
-            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/vorwort/index.html">Vorwort</a>
-            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/karte/index.html">Karte</a>
-            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/orte/index.html">Orte</a>
-            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/auswertung/index.html">Auswertung</a>
-            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/resuemee/index.html">Resümee</a>
-            <a href="/index.html"><button class="bg-primary text-white font-display text-lg px-6 py-2 rounded-full hover:bg-primary-dark transition-all shadow-md transform hover:scale-105">Startseite</button></a>
+            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/vorwort/index.html">Vorwort</a>
+            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/karte/index.html">Karte</a>
+            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/orte/index.html">Orte</a>
+            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/auswertung/index.html">Auswertung</a>
+            <a class="font-display text-xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/resuemee/index.html">Resümee</a>
+            <a href="/index.html"><button
+                    class="bg-primary text-white font-display text-lg px-6 py-2 rounded-full hover:bg-primary-dark transition-all shadow-md transform hover:scale-105">Startseite</button></a>
         </div>
-        
+
         <button id="mobile-menu-btn" class="md:hidden text-accent-blue hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-3xl">menu</span>
         </button>
     </nav>
 
-    <div id="mobile-menu" class="fixed inset-0 z-[100] bg-white/95 backdrop-blur-xl transform translate-x-full mobile-menu-transition flex flex-col items-center justify-center md:hidden">
-        
-        <button id="close-menu-btn" class="absolute top-6 right-6 text-accent-blue hover:text-primary transition-colors">
+    <div id="mobile-menu"
+        class="fixed inset-0 z-[100] bg-white/95 backdrop-blur-xl transform translate-x-full mobile-menu-transition flex flex-col items-center justify-center md:hidden">
+
+        <button id="close-menu-btn"
+            class="absolute top-6 right-6 text-accent-blue hover:text-primary transition-colors">
             <span class="material-symbols-outlined text-4xl">close</span>
         </button>
 
         <div class="flex flex-col gap-8 items-center text-center">
-            <a href="/index.html" class="mb-4"><img src="/media/img/general/logo.svg" alt="Musikstadt Erfurt Logo" class="h-16 w-auto"/></a>
-            
-            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/vorwort/index.html">Vorwort</a>
-            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/karte/index.html">Karte</a>
-            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/orte/index.html">Orte</a>
-            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/auswertung/index.html">Auswertung</a>
-            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide" href="/resuemee/index.html">Resümee</a>
-            <a href="/index.html" class="mt-4"><button class="bg-primary text-white font-display text-2xl px-8 py-3 rounded-full hover:bg-primary-dark transition-all shadow-lg">Startseite</button></a>
+            <a href="/index.html" class="mb-4"><img src="/media/img/general/logo.svg" alt="Musikstadt Erfurt Logo"
+                    class="h-16 w-auto" /></a>
+
+            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/vorwort/index.html">Vorwort</a>
+            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/karte/index.html">Karte</a>
+            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/orte/index.html">Orte</a>
+            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/auswertung/index.html">Auswertung</a>
+            <a class="font-display text-3xl text-accent-blue hover:text-primary transition-colors tracking-wide"
+                href="/resuemee/index.html">Resümee</a>
+            <a href="/index.html" class="mt-4"><button
+                    class="bg-primary text-white font-display text-2xl px-8 py-3 rounded-full hover:bg-primary-dark transition-all shadow-lg">Startseite</button></a>
         </div>
     </div>
 
-    <main class="flex-grow flex flex-col items-center justify-start relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-        
+    <main
+        class="flex-grow flex flex-col items-center justify-start relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+
         <div class="w-full relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/50 group mb-12">
-            
+
             <div class="w-full aspect-[1024/559] bg-gray-200 relative overflow-hidden">
-                <img alt="Watercolor illustration of Erfurt" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" src="/media/img/general/banner.png"/>
-                
-                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none"></div>
+                <img alt="Watercolor illustration of Erfurt"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                    src="/media/img/general/banner.png" />
+
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none">
+                </div>
             </div>
-            
+
             <div class="absolute bottom-0 left-0 w-full p-8 md:p-12 text-center md:text-left pointer-events-none">
-                <img 
-                    src="/media/img/general/logo-start.png" 
-                    alt="Musikstadt Erfurt Banner Logo" 
-                    class="inline-block h-auto w-64 md:w-96 drop-shadow-2xl animate-fade-in-up"
-                />
+                <img src="/media/img/general/logo-start.png" alt="Musikstadt Erfurt Banner Logo"
+                    class="inline-block h-auto w-64 md:w-96 drop-shadow-2xl animate-fade-in-up" />
             </div>
         </div>
+
+
+        <h1 class="font-script text-5xl text-primary mb-2">Herzlich Willkommen in der Musikstadt Erfurt</h1>
+
+
+
+
         <section class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full">
-            <div class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20"></div>
-                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4 text-primary">
-                    <span class="material-symbols-outlined">theater_comedy</span>
+            <div
+                class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20">
                 </div>
-                <h3 class="font-display text-2xl text-accent-blue mb-2">DomStufen-Festspiele</h3>
-                <p class="text-gray-600 mb-4 line-clamp-3">Erleben Sie Oper und Musical vor der atemberaubenden Kulisse von Dom und Severikirche.</p>
-                <a class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1" href="#">
-                    Mehr erfahren <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <h3 class="font-display text-2xl text-accent-blue mb-2">Vorwort</h3> <a
+                    class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1"
+                    href="/vorwort/index.html">
+                    öffnen <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20"></div>
-                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4 text-primary">
-                    <span class="material-symbols-outlined">piano</span>
+            <div
+                class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20">
                 </div>
-                <h3 class="font-display text-2xl text-accent-blue mb-2">Bach-Festival</h3>
-                <p class="text-gray-600 mb-4 line-clamp-3">Auf den Spuren der Bach-Familie in Thüringen. Klassische Konzerte an historischen Orten.</p>
-                <a class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1" href="#">
-                    Mehr erfahren <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <h3 class="font-display text-2xl text-accent-blue mb-2">Karte</h3> <a
+                    class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1"
+                    href="/karte/index.html">
+                    öffnen <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20"></div>
-                <div class="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4 text-primary">
-                    <span class="material-symbols-outlined">nightlife</span>
+            <div
+                class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20">
                 </div>
-                <h3 class="font-display text-2xl text-accent-blue mb-2">Live-Musik & Jazz</h3>
-                <p class="text-gray-600 mb-4 line-clamp-3">Von gemütlichen Jazzkellern bis zu Open-Air Konzerten im Krämerbrücken-Ambiente.</p>
-                <a class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1" href="#">
-                    Mehr erfahren <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <h3 class="font-display text-2xl text-accent-blue mb-2">Orte</h3> <a
+                    class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1"
+                    href="/orte/index.html">
+                    öffnen <span class="material-symbols-outlined text-sm">arrow_forward</span>
                 </a>
             </div>
-        </section>
 
-        <section class="mt-16 w-full bg-accent-blue rounded-2xl p-8 md:p-12 relative overflow-hidden text-center">
-            <div class="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/musical.png')]"></div>
-            <div class="relative z-10">
-                <h3 class="font-script text-4xl text-primary mb-2">Bleiben Sie auf dem Laufenden</h3>
-                <p class="text-white mb-8 text-lg">Abonnieren Sie unseren Newsletter für aktuelle Konzerttermine und exklusive Angebote.</p>
-                <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-                    <input class="flex-grow px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary border-none text-gray-800" placeholder="Ihre E-Mail Adresse" type="email"/>
-                    <button class="bg-primary text-white font-display text-xl px-8 py-3 rounded-lg hover:bg-white hover:text-accent-blue transition-colors uppercase tracking-wide" type="button">
-                        Anmelden
-                    </button>
-                </form>
+            <div
+                class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20">
+                </div>
+                <h3 class="font-display text-2xl text-accent-blue mb-2">Auswertung</h3> <a
+                    class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1"
+                    href="/auswertung/index.html">
+                    öffnen <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+            <div
+                class="bg-white rounded-xl shadow-lg p-6 border border-orange-100 hover:shadow-xl transition-shadow group cursor-pointer relative overflow-hidden">
+                <div
+                    class="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-bl-[100px] transition-all group-hover:bg-primary/20">
+                </div>
+                <h3 class="font-display text-2xl text-accent-blue mb-2">Resümee</h3> <a
+                    class="text-primary font-bold uppercase text-sm tracking-wider hover:text-primary-dark flex items-center gap-1"
+                    href="/resuemee/index.html">
+                    öffnen <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
             </div>
         </section>
 
     </main>
-    <div class="w-full h-16 md:h-24 relative z-10" 
-         style="background-image: url('/media/img/general/siluette.png'); background-repeat: repeat-x; background-position: bottom center; background-size: auto 100%;">
+    <div class="w-full h-16 md:h-24 relative z-10"
+        style="background-image: url('/media/img/general/siluette.png'); background-repeat: repeat-x; background-position: bottom center; background-size: auto 100%;">
     </div>
 
     <footer class="bg-white  py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8">
             <div class="flex flex-col gap-4">
-               <img src="/media/img/general/logo.svg" alt="Musikstadt Erfurt Logo" class="h-20 w-auto"/>
+                <img src="/media/img/general/logo.svg" alt="Musikstadt Erfurt Logo" class="h-20 w-auto" />
                 <p class="text-sm text-gray-500">
-                    Dies ist ein Projekt des Musikkurses Mus2_10 des Friedrich-Schiller-Gymnasium Calbe, umgesetzt durch Thade Kursawsky und Marian Zingel.
+                    Dies ist ein Projekt des Musikkurses Mus2_10 des Friedrich-Schiller-Gymnasium Calbe, umgesetzt durch
+                    Thade Kursawsky und Marian Zingel.
                 </p>
             </div>
             <div>
@@ -179,22 +229,27 @@
             <div>
                 <h4 class="font-display text-lg text-accent-blue mb-4">Unsere Schule im Internet</h4>
                 <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all" href="https://gym-calbe.info/">
+                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all"
+                        href="https://gym-calbe.info/">
                         <span class="font-bold">WEB</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all" href="https://www.instagram.com/fsg_calbe">
+                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all"
+                        href="https://www.instagram.com/fsg_calbe">
                         <span class="font-bold">IG</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all" href="https://www.facebook.com/p/Friedrich-Schiller-Gymnasium-Calbe-100063532541801/">
+                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all"
+                        href="https://www.facebook.com/p/Friedrich-Schiller-Gymnasium-Calbe-100063532541801/">
                         <span class="font-bold">FB</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all" href="https://www.youtube.com/@friedrich-schiller-gymnasi7516">
+                    <a class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-accent-blue hover:bg-primary hover:text-white transition-all"
+                        href="https://www.youtube.com/@friedrich-schiller-gymnasi7516">
                         <span class="font-bold">YT</span>
                     </a>
                 </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
             <p>© 2026 Thade Kursawsky & Marian Zingel. Alle Rechte vorbehalten.</p>
             <div class="flex gap-6 mt-4 md:mt-0">
                 <a class="hover:text-primary" href="/impressum/index.html">Impressum und Datenschutz</a>
@@ -212,7 +267,7 @@
             // 'translate-x-full' versteckt das Menü (schiebt es nach rechts raus)
             // Wenn wir diese Klasse entfernen, kommt es rein.
             menu.classList.toggle("translate-x-full");
-            
+
             // Optional: Scrollen des Body verhindern, wenn Menü offen ist
             if (!menu.classList.contains("translate-x-full")) {
                 document.body.style.overflow = "hidden";
@@ -225,4 +280,5 @@
         closeBtn.addEventListener("click", toggleMenu);
     </script>
 </body>
+
 </html>
