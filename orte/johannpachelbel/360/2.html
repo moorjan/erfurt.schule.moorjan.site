@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Grad Panorama Tour</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        #panorama-container {
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Styling für die interaktiven Hotspots */
+        .custom-hotspot {
+            height: 36px;
+            /* Etwas größer für das Icon */
+            width: 36px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #333;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            /* Farbe des Icons */
+        }
+
+        /* Das Icon selbst */
+        .custom-hotspot .material-symbols-outlined {
+            font-size: 24px;
+            pointer-events: none;
+            /* Klicks gehen durch das Icon auf den Div */
+        }
+
+        .custom-hotspot:hover {
+            transform: scale(1.2);
+            background: #ffcc00;
+            border-color: #fff;
+            color: #000;
+        }
+
+        .hotspot-tooltip {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            position: absolute;
+            width: 160px;
+            /* Etwas breiter für besseren Textfluss */
+            bottom: 45px;
+            left: 50%;
+            transform: translateX(-50%);
+            /* Zentriert den Tooltip exakt */
+            font-size: 14px;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        /* Kleiner Pfeil am Tooltip (optional, sieht aber schick aus) */
+        .hotspot-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+        }
+
+        .custom-hotspot:hover .hotspot-tooltip {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="panorama-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+    <script>
+        // Initialisierung des Viewers
+        const viewer = pannellum.viewer('panorama-container', {
+            "type": "equirectangular",
+            "panorama": "/media/img/360/Predigerkirche2.jpg", // HIER DEIN BILD PFAD EINTRAGEN
+            "autoLoad": true,
+            "hotSpots": [
+                {
+                    "pitch": 35,
+                    "yaw": 0,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspotTooltip,
+                    // Wir übergeben jetzt ein Objekt mit Text UND Icon-Name
+                    "createTooltipArgs": {
+                        text: "Predigerkirche",
+                        icon: "info"
+                    },
+                },
+                {
+                    "pitch": 34,
+                    "yaw": 100,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspotTooltip,
+                    // Wir übergeben jetzt ein Objekt mit Text UND Icon-Name
+                    "createTooltipArgs": {
+                        text: "Paulsturm der Predigerkirche",
+                        icon: "info"
+                    },
+                },
+                {
+                    "pitch": 2,
+                    "yaw": 70,
+                    "cssClass": "custom-hotspot",
+                    "createTooltipFunc": hotspotTooltip,
+                    // Zweites Icon anders definiert
+                    "createTooltipArgs": {
+                        text: "Ort zeigen",
+                        icon: "location_on"
+                    },
+                    "clickHandlerFunc": function () {
+                        window.location.href = "/orte/johannpachelbel/360/1.html";
+                    }
+                },
+            ]
+        });
+
+        // Funktion um das Hotspot-Element (Icon + Tooltip) zu erstellen
+        function hotspotTooltip(hotSpotDiv, args) {
+            hotSpotDiv.classList.add('custom-hotspot');
+
+            // 1. Das Material Icon erstellen
+            const iconSpan = document.createElement('span');
+            iconSpan.classList.add('material-symbols-outlined');
+            iconSpan.innerText = args.icon; // Das Icon aus den Argumenten setzen (z.B. "info")
+            hotSpotDiv.appendChild(iconSpan);
+
+            // 2. Den Tooltip Text erstellen
+            const tooltipSpan = document.createElement('span');
+            tooltipSpan.classList.add('hotspot-tooltip');
+            tooltipSpan.innerHTML = args.text; // Den Text aus den Argumenten setzen
+            hotSpotDiv.appendChild(tooltipSpan);
+        }
+    </script>
+</body>
+
+</html>
